@@ -2,3 +2,4 @@ behave
 pytest
 pytest-cov
 vulture
+flake8
