@@ -22,7 +22,7 @@ jobs:
       - name: Run Linter
         run:  python -m flake8
       - name: Run Vulture
-        run:  "Trainee should add command to run vulture"
+        run:  python -m vulture 
       - name: Run tests
         run:  "Trainee should add command to run test"
 
