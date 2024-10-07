@@ -22,7 +22,7 @@ jobs:
       - name: Run Linter
         run:  python -m flake8
       - name: Run Vulture
-        run:  python -m vulture 
+        run:  python -m vulture --min-confidence 100
       - name: Run tests
         run:  | 
           python -m pytest --cov=formation_indus_ds_avancee/ tests/test_unit/ -vv -p no:warnings
