@@ -20,6 +20,7 @@ def train_model(features: pd.DataFrame, model_registry_folder: str) -> None:
     model.fit(X, y)
     joblib.dump(model, os.path.join(model_registry_folder, 'model.joblib'))
 
+
 def predict_with_io(features_path: str, model_path: str, predictions_folder: str) -> None:
     features = pd.read_parquet(features_path)
     features = predict(features, model_path)
