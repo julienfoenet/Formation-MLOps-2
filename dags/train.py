@@ -1,6 +1,6 @@
 import os
 import sys
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 from airflow.decorators import dag, task
 from airflow.utils.dates import days_ago
@@ -22,7 +22,9 @@ def train_model():
 
     @task
     def train_model_task(feature_path: str) -> None:
-        train_model_with_io(features_path=feature_path, model_registry_folder=MODEL_REGISTRY_FOLDER)
+        timestamp = datetime.now().strftime('%Y%m%d-%H%M%S')
+        model_path = f'{timestamp}.joblib'
+        train_model_with_io(features_path=feature_path, model_registry_folder=MODEL_REGISTRY_FOLDER, model_path=model_path)
 
     feature_path = prepare_features_task()
     train_model_task(feature_path)

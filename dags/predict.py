@@ -7,7 +7,7 @@ from airflow.decorators import dag, task
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.dirname(__file__))))  # So that airflow can find config files
 
-from dags.config import GENERATED_DATA_PATH, DATA_FOLDER, MODEL_PATH, PREDICTIONS_FOLDER
+from dags.config import GENERATED_DATA_PATH, DATA_FOLDER, PREDICTIONS_FOLDER, MODEL_REGISTRY_FOLDER
 from formation_indus_ds_avancee.feature_engineering import prepare_features_with_io
 from formation_indus_ds_avancee.train_and_predict import predict_with_io
 
@@ -27,7 +27,7 @@ def predict():
     @task
     def predict_with_io_task(feature_path: str) -> None:
         predict_with_io(features_path=feature_path,
-                        model_path=MODEL_PATH,
+                        model_registry_folder=MODEL_REGISTRY_FOLDER,
                         predictions_folder=PREDICTIONS_FOLDER)
 
     feature_path = prepare_features_with_io_task()
