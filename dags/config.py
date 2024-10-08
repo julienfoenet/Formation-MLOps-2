@@ -8,7 +8,8 @@ PREDICTIONS_FOLDER = os.path.join(DATA_FOLDER, 'predictions')
 
 TRAIN_DATA_PATH = os.path.join(DATA_FOLDER, 'la-haute-borne-data-2017-2020.csv')
 # TODO change, should point to generator
-GENERATED_DATA_PATH = os.path.join(DATA_FOLDER, 'la-haute-borne-data-2017-2020.csv')
+#GENERATED_DATA_PATH = os.path.join(DATA_FOLDER, 'la-haute-borne-data-2017-2020.csv')
+GENERATED_DATA_PATH = os.path.join(GENERATED_DATA_FOLDER, 'latest.csv')
 
 FEATURES_PATH = os.path.join(DATA_FOLDER, 'prepared_features.parquet')
 
